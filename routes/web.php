@@ -22,3 +22,10 @@ Route::post('register', 'AccountController@register');
 
 Route::get('login', 'AccountController@loginForm');
 Route::post('login', 'AccountController@login');
+
+// {{{ todo: auth middleware
+Route::get('profile', 'ForumController@profile');
+Route::get('profile/new-thread', 'ForumController@threadEditForm');
+Route::post('profile/thread', 'ForumController@saveThread');
+Route::get('profile/thread/{id}', 'ForumController@threadEditForm');
+// }}}

@@ -116,6 +116,9 @@ return [
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
 
+    'no_numbers' => 'The :attribute field must not contain numbers.',
+    'ends_with_dot' => 'The :attribute field must end with dot (.)',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
