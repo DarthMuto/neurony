@@ -49,7 +49,9 @@ class ThreadsController extends Controller {
 		$thread = Thread::findOrFail($id);
 		/** @var ThreadMessage $message */
 		$message = $thread->thread_messages()->create(['author_id' => $this->_user->id, 'content' => $request->content]);
-		Mail::send(new ThreadCommented($message));
+		if ($message->author_id != $message->thread->author_id) {
+			Mail::send(new ThreadCommented($message));
+		}
 		return redirect()->back();
 	}
 

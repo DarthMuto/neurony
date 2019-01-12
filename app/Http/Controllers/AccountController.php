@@ -22,7 +22,7 @@ class AccountController extends Controller
 		$user->password = Hash::make($request->password);
 		$user->save();
 		Auth::login($user);
-		return redirect('/');
+		return redirect('/profile');
     }
 
     public function logout() {
@@ -38,6 +38,6 @@ class AccountController extends Controller
     	if (!Auth::attempt($request->only(['email', 'password']))) {
     		return Redirect::back()->with('message', 'Invalid email and/or password');
 	    }
-    	return redirect('/');
+    	return redirect('/profile');
     }
 }
