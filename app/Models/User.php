@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
-class User extends \App\Models\Base\User
-{
-	protected $hidden = [
-		'password'
-	];
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Foundation\Auth\Access\Authorizable;
 
-	protected $fillable = [
-		'email',
-		'password'
-	];
+class User extends \App\Models\Base\User implements AuthenticatableContract, AuthorizableContract {
+
+	use Authenticatable;
+	use Authorizable;
+
+	protected $hidden = ['password'];
+
+	protected $fillable = ['email', 'password'];
 }

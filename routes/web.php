@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('', function(){
+	return view('home');
 });
+
+Route::get('logout', 'AccountController@logout');
+
+Route::get('register', 'AccountController@registerForm');
+Route::post('register', 'AccountController@register');
+
+Route::get('login', 'AccountController@loginForm');
+Route::post('login', 'AccountController@login');
