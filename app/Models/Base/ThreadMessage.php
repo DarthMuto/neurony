@@ -11,17 +11,24 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class ThreadMessage
- * 
+ *
  * @property int $id
  * @property string $content
  * @property int $author_id
  * @property int $thread_id
  * @property \Carbon\Carbon $created_at
- * 
  * @property \App\Models\Thread $thread
  * @property \App\Models\User $user
- *
  * @package App\Models\Base
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\ThreadMessage newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\ThreadMessage newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\ThreadMessage query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\ThreadMessage whereAuthorId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\ThreadMessage whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\ThreadMessage whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\ThreadMessage whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\ThreadMessage whereThreadId($value)
+ * @mixin \Eloquent
  */
 class ThreadMessage extends Eloquent
 {

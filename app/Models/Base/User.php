@@ -11,15 +11,22 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class User
- * 
+ *
  * @property int $id
  * @property string $email
  * @property string $password
- * 
  * @property \Illuminate\Database\Eloquent\Collection $thread_messages
  * @property \Illuminate\Database\Eloquent\Collection $threads
- *
  * @package App\Models\Base
+ * @property string|null $remember_token
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\User newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\User newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\User query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\User whereRememberToken($value)
+ * @mixin \Eloquent
  */
 class User extends Eloquent
 {
