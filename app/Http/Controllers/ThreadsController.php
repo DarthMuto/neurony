@@ -33,7 +33,7 @@ class ThreadsController extends Controller {
 			'alpha' => ['title', 'ASC'],
 		][$order];
 		$filter = $request->filter;
-		$threadsQuery = Thread::select(['id', 'title', DB::raw('SUBSTRING(`content`, 1, 75) AS `content`')])
+		$threadsQuery = Thread::filterByUser($filter)->select(['id', 'title', DB::raw('SUBSTRING(`content`, 1, 75) AS `content`')])
 			->orderBy(...$orderBy);
 		$threads = $threadsQuery->get();
 		return view('threads', compact('threads', 'order', 'filter'));

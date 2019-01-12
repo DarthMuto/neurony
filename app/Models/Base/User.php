@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Sat, 12 Jan 2019 14:23:41 +0000.
+ * Date: Sat, 12 Jan 2019 15:25:19 +0000.
  */
 
 namespace App\Models\Base;
@@ -15,6 +15,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property int $id
  * @property string $email
  * @property string $password
+ * @property string $remember_token
  * @property \Illuminate\Database\Eloquent\Collection $thread_messages
  * @property \Illuminate\Database\Eloquent\Collection $threads
  * @package App\Models\Base
@@ -24,6 +25,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\User whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\User whereRememberToken($value)
  * @mixin \Eloquent
  */
 class User extends Eloquent

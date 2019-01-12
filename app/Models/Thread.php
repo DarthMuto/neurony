@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 /**
  * App\Models\Thread
  *
@@ -52,6 +53,22 @@ class Thread extends \App\Models\Base\Thread
 
 	public function thread_messages() {
 		return parent::thread_messages()->orderBy('created_at');
+	}
+
+	public static function filterByUser(?string $userSearch) {
+		if (is_null($userSearch)) {
+			return self::select();
+		}
+		$userIds = User::search($userSearch);
+		return self::where(function(\Illuminate\Database\Eloquent\Builder $builder) use ($userIds) {
+			$builder->whereIn('author_id', $userIds->toArray())
+				->orWhereIn('id', function(\Illuminate\Database\Query\Builder $builder) use ($userIds) {
+					$builder
+						->from('thread_messages')
+						->select('thread_id')
+						->whereIn('author_id', $userIds);
+				});
+		});
 	}
 
 }

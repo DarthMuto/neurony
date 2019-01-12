@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Support\Collection;
 
 /**
  * App\Models\User
@@ -34,6 +35,15 @@ class User extends \App\Models\Base\User implements AuthenticatableContract, Aut
 
 	protected $hidden = ['password'];
 
-	protected $fillable = ['email', 'password'];
+	protected $fillable = ['email', 'password', 'remember_token'];
+
+	public static function search($searchString): Collection {
+		$searchWords = collect(preg_split('#[,; ]+#', $searchString))->map('trim')->filter();
+		$query = self::select(['id']);
+		foreach ($searchWords as $searchWord) {
+			$query->orWhere('email', 'LIKE', '%' . $searchWord . '%');
+		}
+		return $query->get()->pluck('id');
+	}
 
 }
