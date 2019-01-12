@@ -44,10 +44,12 @@ class Thread extends \App\Models\Base\Thread
 					->skip(User::MAX_THREADS_PER_USER)
 					->get()
 					->each(function (self $thread) {
-						ThreadMessage::whereThreadId($thread->id)->delete();
 						$thread->delete();
 					});
 			}
+		});
+		self::deleting(function(self $thread){
+			$thread->thread_messages()->delete();
 		});
 	}
 

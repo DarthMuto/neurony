@@ -34,3 +34,7 @@ Route::get('thread/{id}', 'ThreadsController@thread');
 Route::post('thread/{id}', 'ThreadsController@saveComment');
 // }}}
 
+// {{{ todo: admin auth
+Route::get('admin', 'AdminController@index');
+Route::post('admin/delete', 'AdminController@deleteThreads');
+// }}}
