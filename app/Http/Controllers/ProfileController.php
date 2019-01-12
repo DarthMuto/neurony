@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ForumController extends Controller {
+class ProfileController extends Controller {
 
 	/** @var User */
 	protected $_user;
@@ -46,5 +46,7 @@ class ForumController extends Controller {
 		}
 		return redirect('/profile');
 	}
+
+
 
 }

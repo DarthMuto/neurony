@@ -21,6 +21,8 @@ namespace App\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ThreadMessage whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ThreadMessage whereThreadId($value)
  * @mixin \Eloquent
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ThreadMessage whereUpdatedAt($value)
  */
 class ThreadMessage extends \App\Models\Base\ThreadMessage
 {

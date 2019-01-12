@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Sat, 12 Jan 2019 09:50:00 +0000.
+ * Date: Sat, 12 Jan 2019 14:23:40 +0000.
  */
 
 namespace App\Models\Base;
@@ -17,6 +17,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property int $author_id
  * @property int $thread_id
  * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  * @property \App\Models\Thread $thread
  * @property \App\Models\User $user
  * @package App\Models\Base
@@ -28,12 +29,11 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\ThreadMessage whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\ThreadMessage whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\ThreadMessage whereThreadId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\ThreadMessage whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class ThreadMessage extends Eloquent
 {
-	public $timestamps = false;
-
 	protected $casts = [
 		'author_id' => 'int',
 		'thread_id' => 'int'

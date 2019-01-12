@@ -24,8 +24,13 @@ Route::get('login', 'AccountController@loginForm');
 Route::post('login', 'AccountController@login');
 
 // {{{ todo: auth middleware
-Route::get('profile', 'ForumController@profile');
-Route::get('profile/new-thread', 'ForumController@threadEditForm');
-Route::post('profile/thread', 'ForumController@saveThread');
-Route::get('profile/thread/{id}', 'ForumController@threadEditForm');
+Route::get('profile', 'ProfileController@profile');
+Route::get('profile/new-thread', 'ProfileController@threadEditForm');
+Route::post('profile/thread', 'ProfileController@saveThread');
+Route::get('profile/thread/{id}', 'ProfileController@threadEditForm');
+Route::get('threads/{order?}', 'ThreadsController@threads');
+
+Route::get('thread/{id}', 'ThreadsController@thread');
+Route::post('thread/{id}', 'ThreadsController@saveComment');
 // }}}
+

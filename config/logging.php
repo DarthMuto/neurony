@@ -88,6 +88,11 @@ return [
             'driver' => 'errorlog',
             'level' => 'debug',
         ],
+
+        'maillog' => [
+        	'driver' => 'single',
+	        'path' => storage_path('logs/emails.log'),
+        ],
     ],
 
 ];

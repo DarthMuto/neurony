@@ -43,10 +43,15 @@ class Thread extends \App\Models\Base\Thread
 					->skip(User::MAX_THREADS_PER_USER)
 					->get()
 					->each(function (self $thread) {
+						ThreadMessage::whereThreadId($thread->id)->delete();
 						$thread->delete();
 					});
 			}
 		});
+	}
+
+	public function thread_messages() {
+		return parent::thread_messages()->orderBy('created_at');
 	}
 
 }
