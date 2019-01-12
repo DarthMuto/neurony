@@ -33,7 +33,7 @@ class User extends \App\Models\Base\User implements AuthenticatableContract, Aut
 
 	const MAX_THREADS_PER_USER = 5;
 
-	protected $hidden = ['password'];
+	protected $hidden = ['password', 'remember_token'];
 
 	protected $fillable = ['email', 'password', 'remember_token'];
 

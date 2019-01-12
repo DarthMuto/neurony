@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Models\Thread;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller {
 
@@ -24,11 +25,15 @@ class AdminController extends Controller {
 	}
 
 	public function login(LoginRequest $request) {
-		//
+		if (!Auth::guard('admin')->attempt($request->only(['email', 'password']))) {
+			return redirect()->back()->with('message', 'Invalid email and/or password');
+		}
+		return redirect('/admin');
 	}
 
 	public function logout() {
-		//
+		Auth::guard('admin')->logout();
+		return redirect('/');
 	}
 
 }
